@@ -140,9 +140,9 @@ const io = new Server(server, {
 });
 
 io.on("connection", function (socket) {
-  socket.on("disconnect", async function () {
+  /* socket.on("disconnect", async function () {
     await Streams.deleteMany({});
-  });
+  }); */
 
   socket.on("leave", async function (room) {
     socket.leave(room);
