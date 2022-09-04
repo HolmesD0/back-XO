@@ -134,7 +134,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://r9ckse.csb.app/",
+    origin: "https://r9ckse.csb.app",
     methods: ["GET", "POST"]
   }
 });
