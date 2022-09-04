@@ -205,6 +205,7 @@ io.on("connection", function (socket) {
       });
     }
     socket.join(info.room);
+    cdt && io.in(info.room).emit("chat", cdt.msg);
   });
 
   socket.on("req", async function (data) {
