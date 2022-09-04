@@ -75,7 +75,7 @@ function gameXO(table) {
   else return "XO";
 }
 
-const url = "mongodb://0.0.0.0:27017/Game";
+const url = "mongodb+srv://test:test@cluster0.av3llsy.mongodb.net/?retryWrites=true&w=majority";
 mongoose
   .connect(url, {
     useUnifiedTopology: true,
@@ -95,7 +95,7 @@ const StreamShema = new Schema(
   },
   { versionKey: false }
 );
-const Streams = mongoose.model("Stream", StreamShema);
+const Streams = mongoose.model("Game", StreamShema);
 const UserShema = new Schema(
   {
     user: { type: String, required: true, unique: true },
@@ -105,7 +105,7 @@ const UserShema = new Schema(
   },
   { versionKey: false }
 );
-const Users = mongoose.model("User", UserShema);
+const Users = mongoose.model("UserXO", UserShema);
 
 app.use(cors());
 app.use(bodyparser.json());
@@ -134,7 +134,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://r9ckse.csb.app/",
     methods: ["GET", "POST"]
   }
 });
